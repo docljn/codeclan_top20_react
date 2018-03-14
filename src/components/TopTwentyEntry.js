@@ -1,8 +1,9 @@
 import React, {Component} from "react";
 
-const TopTwentyEntry = () => {
+const TopTwentyEntry = (props) => {
+  if (!props.entry) return null;
   return (
-    "Hello World!"
+    props.entry
   );
 };
 
