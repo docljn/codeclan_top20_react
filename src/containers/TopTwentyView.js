@@ -7,7 +7,7 @@ class TopTwentyView extends Component {
   constructor(props){
     super(props);
     this.state = {
-      entries: JSON.parse(MockAPIReturn.feed.entry),
+      entries: MockAPIReturn.feed.entry,
       selectedEntry: null
     };
   }
@@ -15,6 +15,11 @@ class TopTwentyView extends Component {
 
 
   render () {
+    const entrySummaryList = this.state.entries.map( (entry) => {
+      return {id: entry.id.attributes["im:id"], position: entry["im:name"]["label"], title: entry["im:name"]["label"] , artist: entry["im:artist"]["label"]};
+    });
+    console.log(entrySummaryList[0]);
+
     return (
       <div className="top-twenty-view">
         <TopTwentyList entries={this.state.entries}/>
