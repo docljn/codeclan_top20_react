@@ -3,7 +3,11 @@ import React, {Component} from "react";
 class TopTwentyView extends Component {
 
   render () {
-    return "Hello World!";
+    return (
+      <div className="top-twenty-view">
+        Hello World!
+      </div>
+    );
   }
 }
 
