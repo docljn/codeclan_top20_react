@@ -5,12 +5,20 @@ class TopTwentyList extends Component {
   constructor(props){
     super(props);
   }
-  
+
   render () {
-    console.log(this.props);
+    const entryListEntries = this.props.entries.map( (entry) => {
+      return (<TopTwentyEntry title={entry.title} artist={entry.artist} position={entry.position} key={entry.id} />);
+    });
+
+    console.log(entryListEntries);
+
     return(
-      <div>
-        <TopTwentyEntry entry={this.props.entries[0].title.label}/>
+      <div className="top-twenty-view">
+        <h1>UK Top Twenty</h1>
+        <ol>
+          {entryListEntries}
+        </ol>
       </div>
     );
   }

@@ -15,14 +15,13 @@ class TopTwentyView extends Component {
 
 
   render () {
-    const entrySummaryList = this.state.entries.map( (entry) => {
-      return {id: entry.id.attributes["im:id"], position: entry["im:name"]["label"], title: entry["im:name"]["label"] , artist: entry["im:artist"]["label"]};
+    const entrySummaryList = this.state.entries.map( (entry, index) => {
+      return {id: entry.id.attributes["im:id"], position: index+1, title: entry["im:name"]["label"] , artist: entry["im:artist"]["label"]};
     });
-    console.log(entrySummaryList[0]);
 
     return (
       <div className="top-twenty-view">
-        <TopTwentyList entries={this.state.entries}/>
+        <TopTwentyList entries={entrySummaryList}/>
       </div>
     );
   }

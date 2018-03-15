@@ -1,9 +1,15 @@
 import React, {Component} from "react";
 
 const TopTwentyEntry = (props) => {
-  if (!props.entry) return null;
+  console.log(props.children);
+  if (!props.title) return null;
   return (
-    props.entry
+    <li className="entry">
+      <h4 className="entryTitle">
+        { props.title }
+      </h4>
+      { props.artist }
+    </li>
   );
 };
 
