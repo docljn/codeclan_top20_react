@@ -16,7 +16,7 @@ class TopTwentyView extends Component {
 
   render () {
     const entrySummaryList = this.state.entries.map( (entry, index) => {
-      return {id: entry.id.attributes["im:id"], position: index+1, title: entry["im:name"]["label"] , artist: entry["im:artist"]["label"]};
+      return {id: entry.id.attributes["im:id"], position: index+1, title: entry["im:name"]["label"] , artist: entry["im:artist"]["label"], link: entry["im:collection"]["link"]["attributes"]["href"]};
     });
 
     return (

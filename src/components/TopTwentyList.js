@@ -8,7 +8,15 @@ class TopTwentyList extends Component {
 
   render () {
     const entryListEntries = this.props.entries.map( (entry) => {
-      return (<TopTwentyEntry title={entry.title} artist={entry.artist} position={entry.position} key={entry.id} />);
+      return (
+        <TopTwentyEntry
+          position={entry.position}
+          title={entry.title}
+          artist={entry.artist}
+          link={entry.link}
+          key={entry.id}
+        />
+      );
     });
 
     console.log(entryListEntries);

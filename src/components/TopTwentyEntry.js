@@ -1,14 +1,18 @@
 import React, {Component} from "react";
 
 const TopTwentyEntry = (props) => {
-  console.log(props.children);
+  console.log(props.link);
   if (!props.title) return null;
   return (
     <li className="entry">
-      <h4 className="entryTitle">
-        { props.title }
-      </h4>
-      { props.artist }
+      <a href={props.link} target="_blank">
+        <h3 className="entryTitle">
+          { props.title }
+        </h3>
+      </a>
+      <p>
+        - { props.artist }
+      </p>
     </li>
   );
 };
