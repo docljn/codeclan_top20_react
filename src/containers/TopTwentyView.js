@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import MockAPIReturn from "../resources/mockAPI";
+// import MockAPIReturn from "../resources/mockAPI";
 import TopTwentyList from "../components/TopTwentyList";
 
 class TopTwentyView extends Component {
@@ -7,9 +7,23 @@ class TopTwentyView extends Component {
   constructor(props){
     super(props);
     this.state = {
-      entries: MockAPIReturn.feed.entry,
+      entries: [],
+      // entries: MockAPIReturn.feed.entry,
       selectedEntry: null
     };
+  }
+
+  componentDidMount(){
+    const request = new XMLHttpRequest();
+    const url = "https://itunes.apple.com/gb/rss/topsongs/limit=20/json";
+    request.open("GET", url);
+    request.addEventListener("load", () => {
+      if(request.status !== 200) return;
+      const jsonString = request.responseText;
+      const entries = JSON.parse(jsonString).feed.entry;
+      this.setState({entries: entries});
+    });
+    request.send();
   }
 
 

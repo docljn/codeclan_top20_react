@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import TopTwentyView from "./containers/TopTwentyView"
+import TopTwentyView from "./containers/TopTwentyView";
 import "./App.css";
 
 class App extends Component {
